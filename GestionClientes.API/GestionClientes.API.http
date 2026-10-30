@@ -1,0 +1,24 @@
+@GestionClientes_API_HostAddress = https://localhost:7001
+
+GET {{GestionClientes_API_HostAddress}}/api/clientes
+Accept: application/json
+
+###
+
+GET {{GestionClientes_API_HostAddress}}/api/clientes/1
+Accept: application/json
+
+###
+
+POST {{GestionClientes_API_HostAddress}}/api/clientes
+Content-Type: application/json
+
+{
+  "cui": "1234567890101",
+  "nit": "12345678-9",
+  "nombres": "Juan",
+  "apellidos": "Perez",
+  "direccion": "Ciudad de Guatemala",
+  "telefono": "55555555",
+  "fecha_Nacimiento": "2000-01-15"
+}

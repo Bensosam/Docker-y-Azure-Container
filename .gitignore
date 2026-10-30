@@ -1,0 +1,11 @@
+.vs/
+**/bin/
+**/obj/
+**/Properties/PublishProfiles/
+*.pubxml.user
+*.user
+.env
+.env.*
+!.env.example
+*.pfx
+*.publishsettings

@@ -1,0 +1,25 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: GestionClientes.API/Dockerfile
+    image: api-clientes:latest
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: ${AZURE_SQL_CONNECTION_STRING:?Configura AZURE_SQL_CONNECTION_STRING en el archivo .env}
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  blazor:
+    build:
+      context: .
+      dockerfile: GestionClientes.Blazor/Dockerfile
+    image: blazor-clientes:latest
+    environment:
+      API_UPSTREAM: http://api:8080
+    depends_on:
+      - api
+    ports:
+      - "8081:8080"
+    restart: unless-stopped
